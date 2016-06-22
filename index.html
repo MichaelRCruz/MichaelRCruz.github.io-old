@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<head>
+<title>&#127789</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<link href="/normalize.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <style>
+
+  body {
+    background-color: #E0D2DE;
+  }
+
+  .name {
+  font-size: 60px;
+  font-family: 'Poiret One', cursive;
+  letter-spacing: 5px;
+  color: black;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 75px;
+  top: 75px
+  }
+
+  .greet {
+  position: relative;
+  top: 30px;
+  left: 800px;
+  margin: 0 auto;
+  }
+
+  .main {
+    position: relative;
+    top: 150px;
+    left: 250px;
+    width: 0;
+  }
+
+  .shape_1 {
+    height: 400px;
+    width: 400px;
+    border-radius: 20px 0 0 200px;
+    background-color: #7e867f;
+  }
+
+  .shape_2 {
+    position: relative;
+    left: 400px;
+    height: 400px;
+    width: 375px;
+    border-radius: 0 200px 20px 0;
+    background: url("http://i.imgur.com/fAOaJnA.jpg?3");
+    background-position: center;
+  }
+
+  .text_1 {
+    position: relative;
+    top: 20px;
+    right: 35px;
+  }
+
+  .text_2 {
+    position: relative;
+    top: 20px;
+    left: 45px;
+  }
+
+  .links {
+    position: relative;
+    left: 367px;
+    padding: 10px 0 0 0;
+  }
+
+  ul {
+    padding: 0px;
+  }
+
+  li {
+    display: inline;
+    padding: 0px 10px 0px 10px;
+  }
+
+  .flip-container {
+	  perspective: 1000px;
+  }
+
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		-webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+  }
+
+  .flip-container, .front, .back {
+	  width: 400px;
+	  height: 400px;
+  }
+
+  /* flip speed goes here */
+  .flipper {
+	  -webkit-transition: 0.6s;
+	  -moz-transition: 0.6s;
+	  transition: 0.6s;
+	  -webkit-transform-style: preserve-3d;
+	  -moz-transform-style: preserve-3d;
+	  transform-style: preserve-3d;
+    position: relative;
+  }
+
+  /* hide back of pane during swap */
+  .front, .back {
+	  -webkit-backface-visibility: hidden;
+	  -moz-backface-visibility: hidden;
+	  backface-visibility: hidden;
+    position: absolute;
+	  top: 0;
+	  left: 0;
+  }
+
+  /* front pane, placed above back */
+  .front {
+	  z-index: 2;
+	  /* for firefox 31 */
+	  -webkit-transform: rotateY(15deg);
+	  -moz-transform: rotateY(15deg);
+	  transform: rotateY(15deg);
+
+  }
+
+  /* back, initially hidden pane */
+  .back {
+	  -webkit-transform: rotateY(195deg);
+	  -moz-transform: rotateY(195deg);
+	  transform: rotateY(195deg);
+	  background-color: #7e867f;
+	  border-radius: 0 20px 20px 0;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div class="name">michael cruz</div>
+  <div class="greet"><input type="text" placeholder="your name"><button>submit</button></div>
+  <div class="main">
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+        <div class="front">
+          <div class="shape_1"><div class="text_1" align="right">Hello, world!</div>
+          </div>
+        </div>
+        <div class="back">
+          <div>
+          <div class="text_2"></div>
+          </div>
+        </div>
+      </div>
+    <div class="shape_2">
+    </div>
+  </div>
+  <div class="links">
+      <ul>
+      <li><a href="https://github.com/MichaelRCruz"><img src="http://i.imgur.com/yQyglY3.png?1"></img></a></li>
+      </ul>
+    </div>
+<script>
+var answer = []
+
+var response = function() {
+	answer.push($('input').val());
+	display();
+}
+
+var display = function() {
+	user_name = answer[0];
+	$('button').hide();
+	$('input').hide();
+	$('div.greet').html("Hello, nice to meet you, " + user_name + ".");
+}
+
+$('button').click(function() {
+	response();
+});
+</script>
+</body>
